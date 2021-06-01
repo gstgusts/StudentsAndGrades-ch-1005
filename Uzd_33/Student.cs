@@ -12,6 +12,8 @@ namespace Uzd_33
         public List<int> Grades { get; set; }
         public double AvgGrade { get; set; }
 
+        public int Age { get; set; }
+
         public double CalculateAvgGrade()
         {
             double sum = 0;
