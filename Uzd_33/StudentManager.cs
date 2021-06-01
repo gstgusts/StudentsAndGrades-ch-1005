@@ -107,6 +107,9 @@ namespace Uzd_33
 
 
             Console.WriteLine("Enter student ID: ");
+
+            Console.WriteLine("print");
+
             try
             {
                 var input = Console.ReadLine();
@@ -118,6 +121,8 @@ namespace Uzd_33
                 Console.WriteLine("No such ID in the database.");
                 return null;
             }
+
+            
         }
     }
 }
