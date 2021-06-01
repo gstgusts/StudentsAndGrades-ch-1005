@@ -7,7 +7,9 @@ namespace Uzd_33
 {
     class StudentManager
     {
-        public static void RegisterNewStudent(List<Student> list)
+        private List<Student> _students { get; set; } = new List<Student>();
+
+        public void RegisterNewStudent()
         {
             Student student = new Student();
             Random rando = new Random();
@@ -27,46 +29,40 @@ namespace Uzd_33
 
             student.AvgGrade = Math.Round(student.CalculateAvgGrade(), 2);
 
-            list.Add(student);
-
+            _students.Add(student);
         }
 
-        public static void PrintStudentProfile(List<Student> list)
+        public void PrintStudentProfile()
         {
-            var identifiedStudent = FindStudent(list);
+            var identifiedStudent = FindStudent();
 
             if (identifiedStudent != null)
             {
                 identifiedStudent.PrintProfile();
-            }
-            else 
-            { return; }
-                
+            }               
         }
 
-        public static void PrintAllStudents(List<Student> list)
+        public void PrintAllStudents()
         {
-            foreach (var student in list)
+            foreach (var student in _students)
             {
                 Console.WriteLine(student);
             }
         }
 
-        public static void RemoveStudent(List<Student> list)
+        public void RemoveStudent()
         {
-            var identifiedStudent = FindStudent(list);
+            var identifiedStudent = FindStudent();
 
             if(identifiedStudent!=null)
             {
-                list.Remove(identifiedStudent);
+                _students.Remove(identifiedStudent);
             }
-            else
-            { return; }
         }
 
-        private static List<int> EnterGrades()
+        private List<int> EnterGrades()
         {
-            List<int> list = new List<int>();
+            var list = new List<int>();
 
             while(true)
             {
@@ -90,17 +86,22 @@ namespace Uzd_33
                     Console.WriteLine("Would you like to enter another grade? (y/n)");
                     var input = Console.ReadLine().ToLower();
                     if(input == "y")
-                    { break; }
+                    {
+                        break; 
+                    }
                     else if(input == "n")
-                    { return list; }
+                    { 
+                        return list; 
+                    }
                     else
-                    { Console.WriteLine("Type 'y' or 'n'"); }
+                    { 
+                        Console.WriteLine("Type 'y' or 'n'"); 
+                    }
                 }
-
             }
         }
 
-        private static Student FindStudent(List<Student> list)
+        private Student FindStudent()
         {
             Student identifiedStudent = new Student();
 
@@ -109,7 +110,7 @@ namespace Uzd_33
             try
             {
                 var input = Console.ReadLine();
-                identifiedStudent = list.Find(student => (student.Id == input));
+                identifiedStudent = _students.Find(student => (student.Id == input));
                 return identifiedStudent;
             }
             catch (Exception)

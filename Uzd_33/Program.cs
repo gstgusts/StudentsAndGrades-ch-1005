@@ -7,7 +7,8 @@ namespace Uzd_33
     {
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>();
+            var studentsManager = new StudentManager();
+
             int input;
 
             while (true)
@@ -35,16 +36,16 @@ namespace Uzd_33
                 switch (menu)
                 {
                     case MenuEnum.Register:
-                        StudentManager.RegisterNewStudent(students);
+                        studentsManager.RegisterNewStudent();
                         break;
                     case MenuEnum.PrintProfile:
-                        StudentManager.PrintStudentProfile(students);
+                        studentsManager.PrintStudentProfile();
                         break;
                     case MenuEnum.PrintList:
-                        StudentManager.PrintAllStudents(students);
+                        studentsManager.PrintAllStudents();
                         break;
                     case MenuEnum.Remove:
-                        StudentManager.RemoveStudent(students);
+                        studentsManager.RemoveStudent();
                         break;
                     case MenuEnum.Exit:
                         Console.WriteLine("Shutting down...");
