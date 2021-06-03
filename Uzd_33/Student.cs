@@ -13,11 +13,8 @@ namespace Uzd_33
         public double AvgGrade { get; set; }
         public string Address { get; set; }
 
-<<<<<<< HEAD
         public int Age { get; set; }
-=======
         public string Adress2 {get; set;}
->>>>>>> d2d3130 (Adress 2 added)
 
         public double CalculateAvgGrade()
         {
