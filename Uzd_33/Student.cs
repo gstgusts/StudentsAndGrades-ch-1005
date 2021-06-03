@@ -11,6 +11,7 @@ namespace Uzd_33
         public string LastName { get; set; }
         public List<int> Grades { get; set; }
         public double AvgGrade { get; set; }
+        public string Address { get; set; }
 
         public int Age { get; set; }
 
